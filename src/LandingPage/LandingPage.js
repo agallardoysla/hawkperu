@@ -73,11 +73,8 @@ function LandingPage() {
 						<Image style={{ width: 35, height: 35, backgroundColor: 'white', marginLeft: 5 }} />
 					</View>
 				</View>
+				{showForm && <Formulario setshowForm={setshowForm} />}
 			</View>
-			{
-				//showForm &&
-				<Formulario setshowForm={setshowForm} />
-			}
 		</>
 	);
 }
