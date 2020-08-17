@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
 import { View, Text } from 'react-native-web';
-import LandingPage from './LandingPage/LandingPage';
+import LandingPage from '../src/LandingPage/LandingPage';
 
 export default function Home() {
 	return (
