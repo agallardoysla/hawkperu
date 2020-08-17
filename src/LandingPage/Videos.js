@@ -1,10 +1,12 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, TextInput } from 'react-native-web';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, Image, TextInput, TouchableWithoutFeedback, TouchableOpacity } from 'react-native-web';
 import { useWindowSize } from '../hooks/useWindowSize';
 import YouTube from 'react-youtube';
 
 function Videos({ videos }) {
 	let { height, width } = useWindowSize(1);
+
+	const [video, setvideo] = useState('2g811Eo7K8U');
 
 	const opts = {
 		height: '390',
@@ -31,21 +33,56 @@ function Videos({ videos }) {
 					height: '90%',
 				}}
 			>
-				<YouTube videoId="2g811Eo7K8U" opts={opts} onReady={_onReady} />
+				<YouTube videoId={video} opts={opts} onReady={_onReady} />
 				{/* <Image style={{ height: '75%', width: width * 0.8, backgroundColor: 'gray' }} /> */}
 				<Text style={{ marginVertical: 20 }}>Cómo funciona nuestro sistema remoto</Text>
 				<View style={{ width: '20%', justifyContent: 'space-between', flexDirection: 'row' }}>
-					<Image style={{ width: '15%', height: height / 30, backgroundColor: 'gray' }} />
-					<Image style={{ width: '15%', height: height / 30, backgroundColor: 'gray' }} />
-					<Image style={{ width: '15%', height: height / 30, backgroundColor: 'gray' }} />
-					<Image style={{ width: '15%', height: height / 30, backgroundColor: 'gray' }} />
-					<Image style={{ width: '15%', height: height / 30, backgroundColor: 'gray' }} />
+					<TouchableOpacity
+						onPress={() => {
+							setvideo('HNrgK8h2xBc');
+						}}
+						style={{ width: '15%', height: height / 30, backgroundColor: 'gray' }}
+					>
+						<Image style={{ width: '15%', height: height / 30, backgroundColor: 'gray' }} />
+					</TouchableOpacity>
+					<TouchableOpacity
+						onPress={() => {
+							setvideo('BeMJoRppPDw');
+						}}
+						style={{ width: '15%', height: height / 30, backgroundColor: 'gray' }}
+					>
+						<Image style={{ width: '15%', height: height / 30, backgroundColor: 'gray' }} />
+					</TouchableOpacity>
+
+					<TouchableOpacity
+						onPress={() => {
+							setvideo('BeMJoRppPDw');
+						}}
+						style={{ width: '15%', height: height / 30, backgroundColor: 'gray' }}
+					>
+						<Image style={{ width: '15%', height: height / 30, backgroundColor: 'gray' }} />
+					</TouchableOpacity>
+					<TouchableOpacity
+						onPress={() => {
+							setvideo('BeMJoRppPDw');
+						}}
+						style={{ width: '15%', height: height / 30, backgroundColor: 'gray' }}
+					>
+						<Image style={{ width: '15%', height: height / 30, backgroundColor: 'gray' }} />
+					</TouchableOpacity>
+					<TouchableOpacity
+						onPress={() => {
+							setvideo('BeMJoRppPDw');
+						}}
+						style={{ width: '15%', height: height / 30, backgroundColor: 'gray' }}
+					>
+						<Image style={{ width: '15%', height: height / 30, backgroundColor: 'gray' }} />
+					</TouchableOpacity>
 				</View>
 			</View>
 		</View>
 	);
 }
-
 const _onReady = (event) => {
 	// access to player in all event handlers via event.target
 	//event.target.pauseVideo();
