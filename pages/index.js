@@ -7,7 +7,7 @@ export default function Home() {
 	return (
 		<div className="container">
 			<Head>
-				<title>Create Next App</title>
+				<title>Hawk Peru</title>
 				<link rel="icon" href="/favicon.ico" />
 				<link rel="stylesheet" href="https://use.typekit.net/kxd1ure.css"></link>
 			</Head>
