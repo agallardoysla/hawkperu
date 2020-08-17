@@ -8,7 +8,7 @@ export default function Home() {
 		<div className="container">
 			<Head>
 				<title>Hawk Peru</title>
-				<link rel="icon" href="/public/favicon.ico" />
+				<link rel="shortcut icon" href="/favicon.ico" />
 				<link rel="stylesheet" href="https://use.typekit.net/kxd1ure.css"></link>
 			</Head>
 			<LandingPage />
