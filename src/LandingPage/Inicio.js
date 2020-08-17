@@ -35,7 +35,7 @@ function Inicio({ inicio, contacto }) {
 			<Image
 				source={{
 					uri:
-						'https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/Recurso%2016.png?alt=media&token=ed03f10c-f55a-40bb-9b39-ee38d49d48c0',
+						'https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/Recurso%202.png?alt=media&token=0d404702-8cc3-46bc-9b51-eaf639392aea',
 				}}
 				style={{
 					resizeMode: 'contain',
@@ -54,8 +54,8 @@ function Inicio({ inicio, contacto }) {
 				}}
 				style={{
 					resizeMode: 'contain',
-					height: 150,
-					width: 225,
+					height: 300,
+					width: 450,
 					position: 'absolute',
 				}}
 			/>
@@ -69,17 +69,52 @@ function Inicio({ inicio, contacto }) {
 					position: 'absolute',
 				}}
 			>
-				<Text
-					style={{
-						color: 'white',
-						marginBottom: 20,
-						fontWeight: 'bold',
-						fontSize: 35,
-						fontFamily: fonts.acumin,
-					}}
-				>
-					Controlar tu vehículo nunca fue tan fácil.
-				</Text>
+				<View style={{ flexDirection: 'row' }}>
+					<Text
+						style={{
+							color: 'white',
+							marginBottom: 0,
+							fontWeight: 'bold',
+							fontSize: 35,
+							fontFamily: fonts.acumin,
+						}}
+					>
+						{'Controlar '}
+					</Text>
+					<Text
+						style={{
+							color: 'white',
+							marginBottom: 0,
+							fontSize: 35,
+							fontFamily: fonts.acumin,
+						}}
+					>
+						tu vehículo
+					</Text>
+				</View>
+				<View style={{ flexDirection: 'row' }}>
+					<Text
+						style={{
+							color: 'white',
+							marginBottom: 20,
+							fontSize: 35,
+							fontFamily: fonts.acumin,
+						}}
+					>
+						{'nunca fue tan '}
+					</Text>
+					<Text
+						style={{
+							color: 'white',
+							marginBottom: 20,
+							fontWeight: 'bold',
+							fontSize: 35,
+							fontFamily: fonts.acumin,
+						}}
+					>
+						fácil.
+					</Text>
+				</View>
 				<TouchableOpacity
 					onPress={() => {
 						if (contacto.current) {
@@ -89,7 +124,13 @@ function Inicio({ inicio, contacto }) {
 							});
 						}
 					}}
-					style={{ backgroundColor: '#E0040B', padding: 10, width: 150, alignItems: 'center' }}
+					style={{
+						backgroundColor: '#E0040B',
+						padding: 10,
+						width: 150,
+						alignItems: 'center',
+						borderRadius: 5,
+					}}
 				>
 					<Text style={{ color: 'white', fontWeight: 'bold', fontSize: 20 }}>Contáctanos</Text>
 				</TouchableOpacity>

@@ -33,7 +33,7 @@ function LandingPage() {
 							uri:
 								'https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/logo.png?alt=media&token=e4e4b903-bd6e-4fdc-8a5f-4f3da51eaf91',
 						}}
-						style={{ width: '25%', height: '60%', resizeMode: 'contain' }}
+						style={{ width: '25%', height: '70%', resizeMode: 'contain' }}
 					/>
 					<View style={styles.menu}>
 						<MenuElement menu={menu} setmenu={setmenu} titulo={'Inicio'} href={inicio} />
@@ -48,7 +48,7 @@ function LandingPage() {
 				<Cobertura cobertura={cobertura} />
 				<Videos videos={videos} />
 				<Contacto contacto={contacto} setshowForm={setshowForm} />
-				<Comentarios comentarios={comentarios} />
+				{/* <Comentarios comentarios={comentarios} /> */}
 				<View
 					style={{
 						width: '100%',
@@ -60,18 +60,52 @@ function LandingPage() {
 						justifyContent: 'space-between',
 					}}
 				>
-					<Image style={{ backgroundColor: 'gray', width: 150, height: '90%' }} />
-					<TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center' }}>
-						<Image style={{ width: 25, height: 25, backgroundColor: 'white', marginRight: 5 }} />
+					<Image
+						source={{
+							uri:
+								'https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/logo.png?alt=media&token=e4e4b903-bd6e-4fdc-8a5f-4f3da51eaf91',
+						}}
+						style={{ width: '25%', height: '70%', resizeMode: 'contain' }}
+					/>
+					<View style={{ flexDirection: 'row', alignItems: 'center' }}>
+						<Image
+							source={{
+								uri:
+									'https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/celular.png?alt=media&token=9072d654-60e4-41f1-93ad-3dfbbc1994c8',
+							}}
+							style={{ width: 25, height: 25, marginRight: 5 }}
+						/>
 						<Text style={{ color: 'white' }}>+51 961 995 146</Text>
-					</TouchableOpacity>
-					<TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center' }}>
-						<Image style={{ width: 25, height: 25, backgroundColor: 'white', marginRight: 5 }} />
+					</View>
+					<View style={{ flexDirection: 'row', alignItems: 'center' }}>
+						<Image
+							source={{
+								uri:
+									'https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/email.png?alt=media&token=ada6e230-0668-4693-8363-c29778a87a70',
+							}}
+							style={{ width: 25, height: 25, marginRight: 5 }}
+						/>
 						<Text style={{ color: 'white' }}>hawkperu1@gmail.com</Text>
-					</TouchableOpacity>
+					</View>
 					<View style={{ flexDirection: 'row' }}>
-						<Image style={{ width: 35, height: 35, backgroundColor: 'white' }} />
-						<Image style={{ width: 35, height: 35, backgroundColor: 'white', marginLeft: 5 }} />
+						<TouchableOpacity>
+							<Image
+								source={{
+									uri:
+										'https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/facebook.png?alt=media&token=c01a96cf-e87a-4fbc-a2c5-575488330dc9',
+								}}
+								style={{ width: 35, height: 35 }}
+							/>
+						</TouchableOpacity>
+						<TouchableOpacity>
+							<Image
+								source={{
+									uri:
+										'https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/instagram.png?alt=media&token=3c6cc922-2da3-45d6-971f-2238e00875f7',
+								}}
+								style={{ width: 35, height: 35, marginLeft: 5 }}
+							/>
+						</TouchableOpacity>
 					</View>
 				</View>
 				{showForm && <Formulario setshowForm={setshowForm} />}
@@ -93,8 +127,8 @@ const MenuElement = ({ titulo, href, menu, setmenu }) => {
 				}
 			}}
 		>
-			<Text style={{ color: 'white', fontFamily: fonts.acumin, marginVertical: 5 }}>{titulo}</Text>
-			{menu == titulo && <View style={{ height: 2, width: '100%', backgroundColor: '#f5aa00' }} />}
+			<Text style={{ color: 'white', fontFamily: fonts.acumin, marginVertical: 5, fontSize: 20 }}>{titulo}</Text>
+			{menu == titulo && <View style={{ height: 4, width: '100%', backgroundColor: '#f5aa00' }} />}
 		</TouchableOpacity>
 	);
 };

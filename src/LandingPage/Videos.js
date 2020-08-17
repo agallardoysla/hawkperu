@@ -20,9 +20,10 @@ function Videos({ videos }) {
 		<View
 			ref={videos}
 			style={{
-				height: (width * 4) / 7,
+				height: height * 0.7,
 				width: width,
 				justifyContent: 'center',
+				//marginVertical: height / 10,
 			}}
 		>
 			<View
@@ -35,7 +36,7 @@ function Videos({ videos }) {
 			>
 				<YouTube videoId={video} opts={opts} onReady={_onReady} />
 				{/* <Image style={{ height: '75%', width: width * 0.8, backgroundColor: 'gray' }} /> */}
-				<Text style={{ marginVertical: 20 }}>Cómo funciona nuestro sistema remoto</Text>
+				<Text style={{ marginVertical: 5 }}>Cómo funciona nuestro sistema remoto</Text>
 				<View style={{ width: '20%', justifyContent: 'space-between', flexDirection: 'row' }}>
 					<TouchableOpacity
 						onPress={() => {

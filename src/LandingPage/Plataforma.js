@@ -29,7 +29,7 @@ function Plataforma({ plataforma }) {
 						uri:
 							'https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/plataforma.png?alt=media&token=3fdd20e8-4693-40f9-be18-c5e1d73983d4',
 					}}
-					style={{ height: '100%', width: '35%', resizeMode: 'contain' }}
+					style={{ height: '100%', width: '35%', resizeMode: 'contain', marginRight: -100 }}
 				/>
 				<View
 					style={{
@@ -38,7 +38,7 @@ function Plataforma({ plataforma }) {
 						height: '60%',
 						alignItems: 'center',
 						justifyContent: 'center',
-						marginLeft: 30,
+						marginLeft: 0,
 					}}
 				>
 					<Text
@@ -58,8 +58,43 @@ function Plataforma({ plataforma }) {
 							textAlign: 'center',
 						}}
 					>
-						Contamos con una plataforma completa, la cual se encarga del rastreo y ubicació de vehículos
-						robados, además del monitoreo completo de flotas para una mayor eficacia del personal.
+						Contamos con una plataforma completa,
+					</Text>
+					<Text
+						style={{
+							fontFamily: fonts.acumin,
+							fontSize: 20,
+							textAlign: 'center',
+						}}
+					>
+						la cual se encarga del rastreo
+					</Text>
+					<Text
+						style={{
+							fontFamily: fonts.acumin,
+							fontSize: 20,
+							textAlign: 'center',
+						}}
+					>
+						y ubicació de vehículos robados,
+					</Text>
+					<Text
+						style={{
+							fontFamily: fonts.acumin,
+							fontSize: 20,
+							textAlign: 'center',
+						}}
+					>
+						además del monitoreo completo de flotas
+					</Text>
+					<Text
+						style={{
+							fontFamily: fonts.acumin,
+							fontSize: 20,
+							textAlign: 'center',
+						}}
+					>
+						para una mayor eficacia del personal.
 					</Text>
 				</View>
 			</View>

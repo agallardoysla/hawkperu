@@ -25,7 +25,35 @@ function Contacto({ contacto, setshowForm }) {
 					height: '90%',
 				}}
 			>
-				<Image style={{ height: '90%', width: width * 0.4, backgroundColor: 'black' }} />
+				<View style={{ height: '90%', width: width * 0.4, justifyContent: 'flex-end', alignItems: 'flex-end' }}>
+					<Image
+						source={{
+							uri:
+								'https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/ruta.png?alt=media&token=9defd3e9-d815-4020-a847-65e5f1aa68c6',
+						}}
+						style={{
+							height: '100%',
+							width: width * 0.3,
+							resizeMode: 'contain',
+							right: '-10%',
+							position: 'absolute',
+						}}
+					/>
+					<Image
+						source={{
+							uri:
+								'https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/auto.png?alt=media&token=84f87831-6dab-41c3-a984-692eea9b9018',
+						}}
+						style={{
+							position: 'absolute',
+							height: '50%',
+							width: width * 0.3,
+							resizeMode: 'contain',
+							bottom: '-10%',
+						}}
+					/>
+				</View>
+
 				<View
 					style={{
 						padding: 10,
@@ -35,16 +63,18 @@ function Contacto({ contacto, setshowForm }) {
 						marginLeft: 30,
 					}}
 				>
-					<Text style={{ fontWeight: 'bold', marginBottom: 20 }}>CONTÁCTANOS</Text>
+					<Text style={{ fontWeight: 'bold', marginBottom: 20, fontSize: 25 }}>CONTÁCTANOS</Text>
 					<View style={{ flexDirection: 'row' }}>
-						<Text style={{ fonFamily: fonts.acumin, fontWeight: 'bold' }}>Celular:</Text>
-						<Text style={{ fonFamily: fonts.acumin }}> +51961995146</Text>
+						<Text style={{ fonFamily: fonts.acumin, fontWeight: 'bold', fontSize: 18 }}>Celular:</Text>
+						<Text style={{ fonFamily: fonts.acumin, fontSize: 18 }}> +51 961 995 146</Text>
 					</View>
 					<View style={{ marginBottom: 20 }}>
-						<Text style={{ fonFamily: fonts.acumin, fontWeight: 'bold' }}>Correo electrónico:</Text>
-						<Text style={{ fonFamily: fonts.acumin }}>hawkseguridad1@gmail.com</Text>
+						<Text style={{ fonFamily: fonts.acumin, fontWeight: 'bold', fontSize: 18 }}>
+							Correo electrónico:
+						</Text>
+						<Text style={{ fonFamily: fonts.acuminv, fontSize: 18 }}>hawkseguridad1@gmail.com</Text>
 					</View>
-					<Text style={{ fonFamily: fonts.acumin }}>Si tiene dudas o sugerencias.</Text>
+					<Text style={{ fonFamily: fonts.acumin, fontSize: 18 }}>Si tiene dudas o sugerencias.</Text>
 					<TouchableOpacity
 						style={{
 							padding: 5,
@@ -52,7 +82,7 @@ function Contacto({ contacto, setshowForm }) {
 							alignItems: 'center',
 							backgroundColor: '#009938',
 							borderRadius: 5,
-							maxWidth: 400,
+							maxWidth: 350,
 							marginTop: 10,
 						}}
 					>
@@ -61,7 +91,7 @@ function Contacto({ contacto, setshowForm }) {
 								uri:
 									'https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/whats.png?alt=media&token=020313df-a032-406a-8a7b-962aadf34258',
 							}}
-							style={{ width: 25, height: 25, marginRight: 10, resizeMode: 'contain' }}
+							style={{ marginLeft: 10, width: 25, height: 25, marginRight: 10, resizeMode: 'contain' }}
 						/>
 						<Text style={{ fontSize: 20, color: 'white', fontWeight: 'bold', fontFamily: fonts.acumin }}>
 							Escríbenos al Whatsapp
@@ -74,7 +104,7 @@ function Contacto({ contacto, setshowForm }) {
 							alignItems: 'center',
 							backgroundColor: '#E0040B',
 							borderRadius: 5,
-							maxWidth: 450,
+							maxWidth: 400,
 							marginTop: 10,
 						}}
 						onPress={() => {
@@ -86,7 +116,13 @@ function Contacto({ contacto, setshowForm }) {
 								uri:
 									'https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/gmail.png?alt=media&token=88238aba-d7af-4d43-b411-7bea97038bb6',
 							}}
-							style={{ width: 25, height: 25, marginRight: 10, resizeMode: 'contain' }}
+							style={{
+								marginLeft: 10,
+								width: 25,
+								height: 25,
+								marginRight: 10,
+								resizeMode: 'contain',
+							}}
 						/>
 						<Text style={{ fontSize: 20, color: 'white', fontWeight: 'bold', fontFamily: fonts.acumin }}>
 							Enviar un correo electrónico
