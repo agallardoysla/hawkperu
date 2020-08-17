@@ -8,7 +8,7 @@ function Formulario({ setshowForm }) {
 	let { height, width } = useWindowSize(1);
 
 	return (
-		<TouchableOpacity
+		<View
 			style={{
 				position: 'fixed',
 				zIndex: 500,
@@ -23,14 +23,25 @@ function Formulario({ setshowForm }) {
 				setshowForm(false);
 			}}
 		>
-			<View
+			<TouchableOpacity
 				style={{
 					width: '100%',
+					height: '100%',
+				}}
+				onPress={() => {
+					setshowForm(false);
+				}}
+			></TouchableOpacity>
+			<View
+				style={{
+					position: 'absolute',
+					width: '90%',
 					height: '50%',
 					backgroundColor: '#9C9BA0',
 					borderRadius: 10,
 					flexDirection: 'row',
 					paddingTop: 35,
+					alignSelf: 'center',
 				}}
 			>
 				<View
@@ -104,7 +115,7 @@ function Formulario({ setshowForm }) {
 					<Text style={{ alignSelf: 'flex-end', fontFamily: fonts.acumin }}>300 caracteres</Text>
 				</View>
 			</View>
-		</TouchableOpacity>
+		</View>
 	);
 }
 
