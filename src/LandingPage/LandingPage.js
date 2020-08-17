@@ -15,6 +15,7 @@ function LandingPage() {
 	let { height, width } = useWindowSize(1);
 
 	const [showForm, setshowForm] = useState(false);
+	const [menu, setmenu] = useState('Inicio');
 
 	let inicio = useRef();
 	let plataforma = useRef();
@@ -32,14 +33,14 @@ function LandingPage() {
 							uri:
 								'https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/logo.png?alt=media&token=e4e4b903-bd6e-4fdc-8a5f-4f3da51eaf91',
 						}}
-						style={{ width: '25%', height: '100%', resizeMode: 'contain' }}
+						style={{ width: '25%', height: '60%', resizeMode: 'contain' }}
 					/>
 					<View style={styles.menu}>
-						<MenuElement titulo={'Inicio'} href={inicio} />
-						<MenuElement titulo={'Plataforma'} href={plataforma} />
-						<MenuElement titulo={'Cobertura'} href={cobertura} />
-						<MenuElement titulo={'Videos'} href={videos} />
-						<MenuElement titulo={'Contacto'} href={contacto} />
+						<MenuElement menu={menu} setmenu={setmenu} titulo={'Inicio'} href={inicio} />
+						<MenuElement menu={menu} setmenu={setmenu} titulo={'Plataforma'} href={plataforma} />
+						<MenuElement menu={menu} setmenu={setmenu} titulo={'Cobertura'} href={cobertura} />
+						<MenuElement menu={menu} setmenu={setmenu} titulo={'Videos'} href={videos} />
+						<MenuElement menu={menu} setmenu={setmenu} titulo={'Contacto'} href={contacto} />
 					</View>
 				</View>
 				<Inicio inicio={inicio} contacto={contacto} />
@@ -79,7 +80,7 @@ function LandingPage() {
 	);
 }
 
-const MenuElement = ({ titulo, href }) => {
+const MenuElement = ({ titulo, href, menu, setmenu }) => {
 	return (
 		<TouchableOpacity
 			onPress={() => {
@@ -88,10 +89,12 @@ const MenuElement = ({ titulo, href }) => {
 						behavior: 'smooth',
 						top: href.current.offsetTop - 50,
 					});
+					setmenu(titulo);
 				}
 			}}
 		>
-			<Text style={{ color: 'white', fontFamily: fonts.acumin }}>{titulo}</Text>
+			<Text style={{ color: 'white', fontFamily: fonts.acumin, marginVertical: 5 }}>{titulo}</Text>
+			{menu == titulo && <View style={{ height: 2, width: '100%', backgroundColor: '#f5aa00' }} />}
 		</TouchableOpacity>
 	);
 };
@@ -100,7 +103,7 @@ const styles = StyleSheet.create({
 	cabecera: {
 		width: '100%',
 		backgroundColor: 'black',
-		height: 50,
+		height: 60,
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		alignItems: 'center',
