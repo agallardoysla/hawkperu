@@ -1,15 +1,24 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, TextInput } from 'react-native-web';
 import { useWindowSize } from '../hooks/useWindowSize';
+import YouTube from 'react-youtube';
 
 function Videos({ videos }) {
 	let { height, width } = useWindowSize(1);
+
+	const opts = {
+		height: '390',
+		width: '640',
+		playerVars: {
+			autoplay: 0,
+		},
+	};
 
 	return (
 		<View
 			ref={videos}
 			style={{
-				height: (width * 3) / 7,
+				height: (width * 4) / 7,
 				width: width,
 				justifyContent: 'center',
 			}}
@@ -22,18 +31,24 @@ function Videos({ videos }) {
 					height: '90%',
 				}}
 			>
-				<Image style={{ height: '75%', width: width * 0.8, backgroundColor: 'gray' }} />
+				<YouTube videoId="2g811Eo7K8U" opts={opts} onReady={_onReady} />
+				{/* <Image style={{ height: '75%', width: width * 0.8, backgroundColor: 'gray' }} /> */}
 				<Text style={{ marginVertical: 20 }}>Cómo funciona nuestro sistema remoto</Text>
-				<View style={{ width: '60%', justifyContent: 'space-between', flexDirection: 'row' }}>
-					<Image style={{ width: 80, height: 50, backgroundColor: 'gray' }} />
-					<Image style={{ width: 80, height: 50, backgroundColor: 'gray' }} />
-					<Image style={{ width: 80, height: 50, backgroundColor: 'gray' }} />
-					<Image style={{ width: 80, height: 50, backgroundColor: 'gray' }} />
-					<Image style={{ width: 80, height: 50, backgroundColor: 'gray' }} />
+				<View style={{ width: '20%', justifyContent: 'space-between', flexDirection: 'row' }}>
+					<Image style={{ width: '15%', height: height / 30, backgroundColor: 'gray' }} />
+					<Image style={{ width: '15%', height: height / 30, backgroundColor: 'gray' }} />
+					<Image style={{ width: '15%', height: height / 30, backgroundColor: 'gray' }} />
+					<Image style={{ width: '15%', height: height / 30, backgroundColor: 'gray' }} />
+					<Image style={{ width: '15%', height: height / 30, backgroundColor: 'gray' }} />
 				</View>
 			</View>
 		</View>
 	);
 }
+
+const _onReady = (event) => {
+	// access to player in all event handlers via event.target
+	//event.target.pauseVideo();
+};
 
 export default Videos;
