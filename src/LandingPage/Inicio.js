@@ -35,16 +35,17 @@ function Inicio({ inicio, contacto }) {
 			<Image
 				source={{
 					uri:
-						'https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/Recurso%202.png?alt=media&token=0d404702-8cc3-46bc-9b51-eaf639392aea',
+						'https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/satelite.png?alt=media&token=0290316a-4fd6-4897-adb5-0f7951d89f04',
 				}}
 				style={{
 					resizeMode: 'contain',
-					width: '30%',
-					height: '30%',
+					width: '45%',
+					height: '45%',
 					position: 'absolute',
 					top: 0,
 					right: 0,
 					alignSelf: 'center',
+					marginRight: '-10%',
 				}}
 			/>
 			<Image
@@ -75,7 +76,7 @@ function Inicio({ inicio, contacto }) {
 							color: 'white',
 							marginBottom: 0,
 							fontWeight: 'bold',
-							fontSize: 35,
+							fontSize: 50,
 							fontFamily: fonts.acumin,
 						}}
 					>
@@ -85,7 +86,7 @@ function Inicio({ inicio, contacto }) {
 						style={{
 							color: 'white',
 							marginBottom: 0,
-							fontSize: 35,
+							fontSize: 50,
 							fontFamily: fonts.acumin,
 						}}
 					>
@@ -97,7 +98,7 @@ function Inicio({ inicio, contacto }) {
 						style={{
 							color: 'white',
 							marginBottom: 20,
-							fontSize: 35,
+							fontSize: 50,
 							fontFamily: fonts.acumin,
 						}}
 					>
@@ -108,7 +109,7 @@ function Inicio({ inicio, contacto }) {
 							color: 'white',
 							marginBottom: 20,
 							fontWeight: 'bold',
-							fontSize: 35,
+							fontSize: 50,
 							fontFamily: fonts.acumin,
 						}}
 					>

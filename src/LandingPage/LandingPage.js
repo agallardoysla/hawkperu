@@ -127,7 +127,7 @@ const MenuElement = ({ titulo, href, menu, setmenu }) => {
 				}
 			}}
 		>
-			<Text style={{ color: 'white', fontFamily: fonts.acumin, marginVertical: 5, fontSize: 20 }}>{titulo}</Text>
+			<Text style={{ color: 'white', fontFamily: fonts.acumin, marginVertical: 5, fontSize: 25 }}>{titulo}</Text>
 			{menu == titulo && <View style={{ height: 4, width: '100%', backgroundColor: '#f5aa00' }} />}
 		</TouchableOpacity>
 	);
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
 	cabecera: {
 		width: '100%',
 		backgroundColor: 'black',
-		height: 60,
+		height: 90,
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		alignItems: 'center',
