@@ -29,7 +29,7 @@ function LandingPage() {
 	let scroll = useRef();
 
 	useEffect(() => {
-		alert(isMobile);
+		//alert(isMobile);
 	}, [isMobile]);
 
 	return (
