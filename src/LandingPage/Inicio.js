@@ -13,7 +13,7 @@ function Inicio({ inicio, contacto }) {
 			ref={inicio}
 			style={{
 				width: width,
-				height: isMobile ? 470 : 600,
+				height: height > width ? 470 : 600,
 				backgroundColor: '#f5aa00',
 				marginTop: 60,
 			}}
