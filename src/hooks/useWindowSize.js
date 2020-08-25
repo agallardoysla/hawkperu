@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { BrowserView, MobileView, isMobile } from 'react-device-detect';
 
 export function useWindowSize(escala) {
 	// Initialize state with undefined width/height so server and client renders match
@@ -21,7 +22,7 @@ export function useWindowSize(escala) {
 				height: window.innerHeight,
 				size: escala * window.innerWidth * window.innerHeight,
 				//isMobile: window.innerWidth < 800 && window.innerHeight > window.innerWidth,
-				isMobile: window.innerWidth < 800 && window.orientation == 0,
+				isMobile: (window.innerWidth < 800 && window.orientation == 0) || isMobile,
 			});
 		}
 
