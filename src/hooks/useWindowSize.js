@@ -8,7 +8,7 @@ export function useWindowSize(escala) {
 		width: undefined,
 		height: undefined,
 		size: undefined,
-		isMobile: undefined,
+		isMobile: true,
 	});
 
 	useEffect(() => {
