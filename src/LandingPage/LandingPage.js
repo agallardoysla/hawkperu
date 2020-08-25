@@ -16,7 +16,7 @@ import Cabecera from './Cabecera';
 import Footer from './Footer';
 
 function LandingPage() {
-	let { height, width } = useWindowSize(1);
+	let { height, width, isMobile } = useWindowSize(1);
 
 	const [showForm, setshowForm] = useState(false);
 
@@ -28,7 +28,9 @@ function LandingPage() {
 	let contacto = useRef();
 	let scroll = useRef();
 
-	useEffect(() => {}, []);
+	useEffect(() => {
+		alert(isMobile);
+	}, [isMobile]);
 
 	return (
 		<View style={{ width: '100%', flex: 1 }}>

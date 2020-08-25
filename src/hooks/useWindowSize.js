@@ -23,7 +23,7 @@ export function useWindowSize(escala) {
 				size: escala * window.innerWidth * window.innerHeight,
 				//isMobile: window.innerWidth < 800 && window.innerHeight > window.innerWidth,
 				isMobile:
-					window.innerWidth < 800 ||
+					window.innerWidth < 700 ||
 					//&& window.orientation == 0
 					isMobile,
 			});
