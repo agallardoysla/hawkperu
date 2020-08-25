@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { BrowserView, MobileView, isMobile } from 'react-device-detect';
 
 import { View, Text, StyleSheet, TouchableOpacity, Image, TextInput, ScrollView } from 'react-native-web';
@@ -13,6 +13,7 @@ import Contacto from './Contacto';
 import Comentarios from './Comentarios';
 import Formulario from './modales/Formulario';
 import Cabecera from './Cabecera';
+import Footer from './Footer';
 
 function LandingPage() {
 	let { height, width } = useWindowSize(1);
@@ -25,84 +26,34 @@ function LandingPage() {
 	let cobertura = useRef();
 	let videos = useRef();
 	let contacto = useRef();
+	let scroll = useRef();
+
+	useEffect(() => {}, []);
 
 	return (
-		<ScrollView style={{ width: width }}>
+		<View style={{ width: '100%', flex: 1 }}>
 			<Cabecera
 				inicio={inicio}
 				plataforma={plataforma}
 				cobertura={cobertura}
 				videos={videos}
 				contacto={contacto}
+				scroll={scroll}
 			/>
+			<ScrollView ref={scroll} style={{ width: '100%' }}>
+				{/* <> */}
 
-			<Inicio inicio={inicio} contacto={contacto} />
-			<Plataforma plataforma={plataforma} />
-			<Cobertura cobertura={cobertura} />
-			<Videos videos={videos} />
-			<Contacto contacto={contacto} setshowForm={setshowForm} />
-			{/* <Comentarios comentarios={comentarios} /> */}
-			<View
-				style={{
-					width: '100%',
-					flexDirection: 'row',
-					height: 80,
-					backgroundColor: 'black',
-					alignItems: 'center',
-					paddingHorizontal: '5%',
-					justifyContent: 'space-between',
-				}}
-			>
-				<Image
-					source={{
-						uri:
-							'https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/logo.png?alt=media&token=e4e4b903-bd6e-4fdc-8a5f-4f3da51eaf91',
-					}}
-					style={{ width: '25%', height: '70%', resizeMode: 'contain' }}
-				/>
-				<View style={{ flexDirection: 'row', alignItems: 'center' }}>
-					<Image
-						source={{
-							uri:
-								'https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/celular.png?alt=media&token=9072d654-60e4-41f1-93ad-3dfbbc1994c8',
-						}}
-						style={{ width: 25, height: 25, marginRight: 5 }}
-					/>
-					<Text style={{ color: 'white' }}>+51 961 995 146</Text>
-				</View>
-				<View style={{ flexDirection: 'row', alignItems: 'center' }}>
-					<Image
-						source={{
-							uri:
-								'https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/email.png?alt=media&token=ada6e230-0668-4693-8363-c29778a87a70',
-						}}
-						style={{ width: 25, height: 25, marginRight: 5 }}
-					/>
-					<Text style={{ color: 'white' }}>hawkperu1@gmail.com</Text>
-				</View>
-				<View style={{ flexDirection: 'row' }}>
-					<TouchableOpacity>
-						<Image
-							source={{
-								uri:
-									'https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/facebook.png?alt=media&token=c01a96cf-e87a-4fbc-a2c5-575488330dc9',
-							}}
-							style={{ width: 35, height: 35 }}
-						/>
-					</TouchableOpacity>
-					<TouchableOpacity>
-						<Image
-							source={{
-								uri:
-									'https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/instagram.png?alt=media&token=3c6cc922-2da3-45d6-971f-2238e00875f7',
-							}}
-							style={{ width: 35, height: 35, marginLeft: 5 }}
-						/>
-					</TouchableOpacity>
-				</View>
-			</View>
-			{showForm && <Formulario setshowForm={setshowForm} />}
-		</ScrollView>
+				<Inicio inicio={inicio} contacto={contacto} />
+				<Plataforma plataforma={plataforma} />
+				<Cobertura cobertura={cobertura} />
+				<Videos videos={videos} />
+				<Contacto contacto={contacto} setshowForm={setshowForm} />
+				{/* <Comentarios comentarios={comentarios} /> */}
+				<Footer />
+				{<Formulario showForm={showForm} setshowForm={setshowForm} />}
+				{/* </> */}
+			</ScrollView>
+		</View>
 	);
 }
 

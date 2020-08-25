@@ -3,44 +3,40 @@ import { View, Text, StyleSheet, TouchableOpacity, Image, TextInput, TouchableWi
 import { useWindowSize } from '../../hooks/useWindowSize';
 
 import { fonts } from '../../constantes/Temas';
+import Modal from 'react-modal';
+import { BrowserView, MobileView, isMobile } from 'react-device-detect';
 
-function Formulario({ setshowForm }) {
+function Formulario({ setshowForm, showForm }) {
 	let { height, width } = useWindowSize(1);
 
 	return (
-		<View
-			style={{
-				position: 'fixed',
-				zIndex: 500,
-				justifyContent: 'center',
-				alignItems: 'center',
-				width: '100%',
-				height: height,
-				backgroundColor: 'rgba(52,52,52,0.4)',
-				paddingHorizontal: '10%',
-			}}
-			onPress={() => {
+		<Modal
+			isOpen={showForm}
+			//onAfterOpen={afterOpenModal}
+			onRequestClose={() => {
 				setshowForm(false);
 			}}
-		>
-			<TouchableOpacity
-				style={{
-					width: '100%',
-					height: '100%',
-				}}
-				onPress={() => {
-					setshowForm(false);
-				}}
-			></TouchableOpacity>
-			<View
-				style={{
-					position: 'absolute',
-					width: '90%',
-					height: '50%',
+			style={{
+				content: {
+					height: isMobile ? '80%' : '55%',
+					minHeight: isMobile ? 600 : 300,
 					backgroundColor: '#9C9BA0',
 					borderRadius: 10,
 					flexDirection: 'row',
-					paddingTop: 35,
+					alignSelf: 'center',
+					marginTop: isMobile ? '0%' : '5%',
+				},
+			}}
+			contentLabel="Example Modal"
+		>
+			<View
+				style={{
+					width: '100%',
+					height: '100%',
+					backgroundColor: '#9C9BA0',
+					borderRadius: 10,
+					flexDirection: isMobile ? 'column' : 'row',
+					paddingTop: isMobile ? 0 : 35,
 					alignSelf: 'center',
 				}}
 			>
@@ -48,7 +44,7 @@ function Formulario({ setshowForm }) {
 					style={{
 						flex: 1,
 						height: '100%',
-						paddingLeft: 20,
+						paddingLeft: isMobile ? 5 : 20,
 					}}
 				>
 					<Text style={{ fontFamily: fonts.acumin, fontSize: 15 }}>
@@ -86,14 +82,16 @@ function Formulario({ setshowForm }) {
 					</View>
 				</View>
 				<View
-					style={{
-						flex: 1,
-						height: '100%',
-						//padding: 10,
-						paddingLeft: 20,
-						paddingRight: 20,
-						paddingBottom: 30,
-					}}
+					style={[
+						{
+							flex: 1,
+							//padding: 10,
+							paddingLeft: isMobile ? 5 : 20,
+							paddingRight: isMobile ? 10 : 20,
+							paddingBottom: isMobile ? 0 : 30,
+						},
+						isMobile ? { minHeight: 100 } : { height: '100%' },
+					]}
 				>
 					<Text style={{ marginBottom: 10, fontFamily: fonts.acumin }}>Envíenos su pregunta.</Text>
 					<TextInput
@@ -101,10 +99,10 @@ function Formulario({ setshowForm }) {
 						style={{
 							textAlign: 'start',
 							justifyContent: 'flex-start',
-							height: '80%',
+							flex: 1,
 							width: '100%',
 							backgroundColor: 'white',
-							marginRight: 10,
+							//marginRight: 10,
 							padding: 10,
 							borderRadius: 5,
 							fontFamily: fonts.acumin,
@@ -115,7 +113,7 @@ function Formulario({ setshowForm }) {
 					<Text style={{ alignSelf: 'flex-end', fontFamily: fonts.acumin }}>300 caracteres</Text>
 				</View>
 			</View>
-		</View>
+		</Modal>
 	);
 }
 
@@ -123,7 +121,7 @@ const Input = ({ placeholder, obligatorio }) => {
 	return (
 		<View
 			style={{
-				marginBottom: 20,
+				marginBottom: isMobile ? 10 : 20,
 				flex: 1,
 				alignItems: 'center',
 				backgroundColor: 'white',
@@ -154,6 +152,7 @@ const Input = ({ placeholder, obligatorio }) => {
 					height: '100%',
 					flex: 1,
 					minWidth: 0,
+					fontSize: isMobile ? '3vw' : '1vw',
 				}}
 				placeholder={placeholder}
 			/>

@@ -4,39 +4,52 @@ import { useWindowSize } from '../hooks/useWindowSize';
 import { fonts } from '../constantes/Temas';
 
 function Contacto({ contacto, setshowForm }) {
-	let { height, width } = useWindowSize(1);
+	let { height, width, isMobile } = useWindowSize(1);
 
 	return (
 		<View
 			ref={contacto}
 			style={{
-				height: (width * 3) / 7,
+				height: isMobile ? 800 : (width * 3) / 7,
 				width: width,
-				justifyContent: 'center',
+				justifyContent: 'flex-start',
 				backgroundColor: '#D8DADE',
+				//paddingTop: 50,
 			}}
 		>
 			<View
 				style={{
 					width: width,
-					flexDirection: 'row',
+					flexDirection: isMobile ? 'column-reverse' : 'row',
 					alignItems: 'center',
 					justifyContent: 'center',
-					height: '90%',
+					height: isMobile ? 'auto' : '100%',
+					//backgroundColor: 'red',
 				}}
 			>
-				<View style={{ height: '90%', width: width * 0.4, justifyContent: 'flex-end', alignItems: 'flex-end' }}>
+				<View
+					style={[
+						{
+							height: isMobile ? 300 : '90%',
+							width: isMobile ? width : width * 0.4,
+							justifyContent: 'flex-end',
+							alignItems: 'flex-end',
+						},
+						//isMobile ? { paddingRight: 100 } : {},
+					]}
+				>
 					<Image
 						source={{
 							uri:
 								'https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/ruta.png?alt=media&token=9defd3e9-d815-4020-a847-65e5f1aa68c6',
 						}}
 						style={{
-							height: '100%',
-							width: width * 0.3,
+							height: isMobile ? 400 : '100%',
+							width: isMobile ? width * 0.5 : width * 0.3,
 							resizeMode: 'contain',
-							right: '-10%',
+							right: isMobile ? 80 : '-10%',
 							position: 'absolute',
+							//backgroundColor: 'red',
 						}}
 					/>
 					<Image
@@ -44,23 +57,29 @@ function Contacto({ contacto, setshowForm }) {
 							uri:
 								'https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/auto.png?alt=media&token=84f87831-6dab-41c3-a984-692eea9b9018',
 						}}
-						style={{
-							position: 'absolute',
-							height: '50%',
-							width: width * 0.3,
-							resizeMode: 'contain',
-							bottom: '-10%',
-						}}
+						style={[
+							{
+								position: 'absolute',
+								height: isMobile ? 300 : '60%',
+								width: isMobile ? width : width * 0.4,
+								resizeMode: 'contain',
+								bottom: isMobile ? -70 : '-15%',
+							},
+							isMobile ? { left: -50 } : {},
+						]}
 					/>
 				</View>
 
 				<View
 					style={{
 						padding: 10,
-						width: width * 0.5,
-						height: '60%',
-						justifyContent: 'center',
-						marginLeft: 30,
+						width: isMobile ? width * 0.9 : width * 0.5,
+						height: isMobile ? 430 : '60%',
+						justifyContent: isMobile ? 'flex-start' : 'center',
+						marginLeft: isMobile ? 0 : 30,
+						alignItems: isMobile ? 'center' : 'flex-start',
+						paddingTop: isMobile ? 50 : 0,
+						//marginBottom: 20,
 					}}
 				>
 					<Text style={{ fontWeight: 'bold', marginBottom: 20, fontSize: 25 }}>CONTÁCTANOS</Text>
@@ -68,7 +87,7 @@ function Contacto({ contacto, setshowForm }) {
 						<Text style={{ fonFamily: fonts.acumin, fontWeight: 'bold', fontSize: 18 }}>Celular:</Text>
 						<Text style={{ fonFamily: fonts.acumin, fontSize: 18 }}> +51 961 995 146</Text>
 					</View>
-					<View style={{ marginBottom: 20 }}>
+					<View style={{ marginBottom: 20, alignItems: isMobile ? 'center' : 'flex-start' }}>
 						<Text style={{ fonFamily: fonts.acumin, fontWeight: 'bold', fontSize: 18 }}>
 							Correo electrónico:
 						</Text>

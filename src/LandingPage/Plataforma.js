@@ -4,13 +4,13 @@ import { useWindowSize } from '../hooks/useWindowSize';
 import { fonts } from '../constantes/Temas';
 
 function Plataforma({ plataforma }) {
-	let { height, width } = useWindowSize(1);
+	let { height, width, isMobile } = useWindowSize(1);
 
 	return (
 		<View
 			ref={plataforma}
 			style={{
-				height: (width * 3) / 7,
+				height: isMobile ? 600 : 700,
 				width: width,
 				justifyContent: 'center',
 			}}
@@ -18,10 +18,11 @@ function Plataforma({ plataforma }) {
 			<View
 				style={{
 					width: width,
-					flexDirection: 'row',
+					flexDirection: isMobile ? 'column-reverse' : 'row',
 					alignItems: 'center',
 					justifyContent: 'center',
-					height: '90%',
+					height: isMobile ? '90%' : '90%',
+					paddingTop: isMobile ? 50 : 0,
 				}}
 			>
 				<Image
@@ -29,32 +30,48 @@ function Plataforma({ plataforma }) {
 						uri:
 							'https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/plataforma.png?alt=media&token=3fdd20e8-4693-40f9-be18-c5e1d73983d4',
 					}}
-					style={{ height: '100%', width: '35%', resizeMode: 'contain', marginRight: -100 }}
+					style={{
+						height: isMobile ? 300 : '100%',
+						width: isMobile ? '100%' : '35%',
+						resizeMode: 'contain',
+						marginRight: isMobile ? 0 : -100,
+						marginBottom: isMobile ? 10 : 0,
+					}}
 				/>
 				<View
 					style={{
-						padding: 10,
-						width: width * 0.55,
+						padding: isMobile ? 0 : 10,
+						width: isMobile ? width : width * 0.55,
 						height: '60%',
 						alignItems: 'center',
 						justifyContent: 'center',
 						marginLeft: 0,
+						backgroudColor: 'red',
 					}}
 				>
 					<Text
 						style={{
 							fontFamily: fonts.acumin,
 							fontWeight: 'bold',
-							fontSize: 20,
-							marginBottom: 25,
+							fontSize: isMobile ? '5vw' : 20,
 						}}
 					>
-						BENEFICIOS DE NUESTRA PLATAFORMA
+						BENEFICIOS
 					</Text>
 					<Text
 						style={{
 							fontFamily: fonts.acumin,
-							fontSize: 20,
+							fontWeight: 'bold',
+							fontSize: isMobile ? '5vw' : 20,
+							marginBottom: isMobile ? 10 : 25,
+						}}
+					>
+						DE NUESTRA PLATAFORMA
+					</Text>
+					<Text
+						style={{
+							fontFamily: fonts.acumin,
+							fontSize: isMobile ? '5vw' : 20,
 							textAlign: 'center',
 						}}
 					>
@@ -63,7 +80,7 @@ function Plataforma({ plataforma }) {
 					<Text
 						style={{
 							fontFamily: fonts.acumin,
-							fontSize: 20,
+							fontSize: isMobile ? '5vw' : 20,
 							textAlign: 'center',
 						}}
 					>
@@ -72,7 +89,7 @@ function Plataforma({ plataforma }) {
 					<Text
 						style={{
 							fontFamily: fonts.acumin,
-							fontSize: 20,
+							fontSize: isMobile ? '5vw' : 20,
 							textAlign: 'center',
 						}}
 					>
@@ -81,7 +98,7 @@ function Plataforma({ plataforma }) {
 					<Text
 						style={{
 							fontFamily: fonts.acumin,
-							fontSize: 20,
+							fontSize: isMobile ? '5vw' : 20,
 							textAlign: 'center',
 						}}
 					>
@@ -90,7 +107,7 @@ function Plataforma({ plataforma }) {
 					<Text
 						style={{
 							fontFamily: fonts.acumin,
-							fontSize: 20,
+							fontSize: isMobile ? '5vw' : 20,
 							textAlign: 'center',
 						}}
 					>

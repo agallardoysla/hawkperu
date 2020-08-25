@@ -1,12 +1,12 @@
-import { BrowserView, MobileView, isMobile } from 'react-device-detect';
+// import { BrowserView, MobileView, isMobile } from 'react-device-detect';
 import React, { useRef, useState } from 'react';
 
 import { View, Text, StyleSheet, TouchableOpacity, Image, TextInput } from 'react-native-web';
 import { useWindowSize } from '../hooks/useWindowSize';
 import { fonts } from '../constantes/Temas';
 
-function Cabecera({ inicio, plataforma, cobertura, videos, contacto }) {
-	let { height, width } = useWindowSize(1);
+function Cabecera({ inicio, plataforma, cobertura, videos, contacto, scroll }) {
+	let { height, width, isMobile } = useWindowSize(1);
 	const [menu, setmenu] = useState('Inicio');
 
 	return (
@@ -21,11 +21,29 @@ function Cabecera({ inicio, plataforma, cobertura, videos, contacto }) {
 						style={{ width: '25%', height: '70%', resizeMode: 'contain' }}
 					/>
 					<View style={styles.menu}>
-						<MenuElement menu={menu} setmenu={setmenu} titulo={'Inicio'} href={inicio} />
-						<MenuElement menu={menu} setmenu={setmenu} titulo={'Plataforma'} href={plataforma} />
-						<MenuElement menu={menu} setmenu={setmenu} titulo={'Cobertura'} href={cobertura} />
-						<MenuElement menu={menu} setmenu={setmenu} titulo={'Videos'} href={videos} />
-						<MenuElement menu={menu} setmenu={setmenu} titulo={'Contacto'} href={contacto} />
+						<MenuElement menu={menu} setmenu={setmenu} titulo={'Inicio'} href={inicio} scroll={scroll} />
+						<MenuElement
+							menu={menu}
+							setmenu={setmenu}
+							titulo={'Plataforma'}
+							href={plataforma}
+							scroll={scroll}
+						/>
+						<MenuElement
+							menu={menu}
+							setmenu={setmenu}
+							titulo={'Cobertura'}
+							href={cobertura}
+							scroll={scroll}
+						/>
+						<MenuElement menu={menu} setmenu={setmenu} titulo={'Videos'} href={videos} scroll={scroll} />
+						<MenuElement
+							menu={menu}
+							setmenu={setmenu}
+							titulo={'Contacto'}
+							href={contacto}
+							scroll={scroll}
+						/>
 					</View>
 				</View>
 			)}
@@ -53,7 +71,7 @@ function Cabecera({ inicio, plataforma, cobertura, videos, contacto }) {
 	);
 }
 
-const MenuElement = ({ titulo, href, menu, setmenu }) => {
+const MenuElement = ({ titulo, href, menu, setmenu, scroll }) => {
 	return (
 		<TouchableOpacity
 			onPress={() => {
@@ -66,7 +84,9 @@ const MenuElement = ({ titulo, href, menu, setmenu }) => {
 				}
 			}}
 		>
-			<Text style={{ color: 'white', fontFamily: fonts.acumin, marginVertical: 5, fontSize: 25 }}>{titulo}</Text>
+			<Text style={{ color: 'white', fontFamily: fonts.acumin, marginVertical: 5, fontSize: '2.5vw' }}>
+				{titulo}
+			</Text>
 			{menu == titulo && <View style={{ height: 4, width: '100%', backgroundColor: '#f5aa00' }} />}
 		</TouchableOpacity>
 	);
@@ -83,6 +103,7 @@ const styles = StyleSheet.create({
 		paddingHorizontal: '2%',
 		zIndex: 400,
 		position: 'fixed',
+		top: 0,
 	},
 	menu: {
 		paddingHorizontal: '10%',

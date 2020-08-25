@@ -7,16 +7,21 @@ export function useWindowSize(escala) {
 		width: undefined,
 		height: undefined,
 		size: undefined,
+		isMobile: undefined,
 	});
 
 	useEffect(() => {
 		// Handler to call on window resize
 		function handleResize() {
+			//alert(window.orientation);
+
 			// Set window width/height to state
 			setWindowSize({
 				width: window.innerWidth,
 				height: window.innerHeight,
 				size: escala * window.innerWidth * window.innerHeight,
+				//isMobile: window.innerWidth < 800 && window.innerHeight > window.innerWidth,
+				isMobile: window.innerWidth < 800 && window.orientation == 0,
 			});
 		}
 
@@ -28,7 +33,7 @@ export function useWindowSize(escala) {
 
 		// Remove event listener on cleanup
 		return () => window.removeEventListener('resize', handleResize);
-	}, [escala]); // Empty array ensures that effect is only run on mount
+	}, [escala, windowSize.isMobile]); // Empty array ensures that effect is only run on mount
 
 	return windowSize;
 }

@@ -4,13 +4,13 @@ import { useWindowSize } from '../hooks/useWindowSize';
 import YouTube from 'react-youtube';
 
 function Videos({ videos }) {
-	let { height, width } = useWindowSize(1);
+	let { height, width, isMobile } = useWindowSize(1);
 
 	const [video, setvideo] = useState('2g811Eo7K8U');
 
 	const opts = {
 		height: '390',
-		width: '640',
+		width: isMobile ? width * 0.95 : width * 0.8,
 		playerVars: {
 			autoplay: 0,
 		},
@@ -20,70 +20,51 @@ function Videos({ videos }) {
 		<View
 			ref={videos}
 			style={{
-				height: height * 0.7,
+				height: isMobile ? 500 : height * 0.7,
 				width: width,
 				justifyContent: 'center',
-				//marginVertical: height / 10,
+				marginVertical: isMobile ? 10 : 0,
+				//backgroundColor: 'red',
 			}}
 		>
 			<View
 				style={{
 					width: width,
 					alignItems: 'center',
-					justifyContent: 'center',
+					justifyContent: 'flex-start',
 					height: '90%',
 				}}
 			>
 				<YouTube videoId={video} opts={opts} onReady={_onReady} />
 				{/* <Image style={{ height: '75%', width: width * 0.8, backgroundColor: 'gray' }} /> */}
 				<Text style={{ marginVertical: 5 }}>Cómo funciona nuestro sistema remoto</Text>
-				<View style={{ width: '20%', justifyContent: 'space-between', flexDirection: 'row' }}>
-					<TouchableOpacity
-						onPress={() => {
-							setvideo('HNrgK8h2xBc');
-						}}
-						style={{ width: '15%', height: height / 30, backgroundColor: 'gray' }}
-					>
-						<Image style={{ width: '15%', height: height / 30, backgroundColor: 'gray' }} />
-					</TouchableOpacity>
-					<TouchableOpacity
-						onPress={() => {
-							setvideo('BeMJoRppPDw');
-						}}
-						style={{ width: '15%', height: height / 30, backgroundColor: 'gray' }}
-					>
-						<Image style={{ width: '15%', height: height / 30, backgroundColor: 'gray' }} />
-					</TouchableOpacity>
-
-					<TouchableOpacity
-						onPress={() => {
-							setvideo('BeMJoRppPDw');
-						}}
-						style={{ width: '15%', height: height / 30, backgroundColor: 'gray' }}
-					>
-						<Image style={{ width: '15%', height: height / 30, backgroundColor: 'gray' }} />
-					</TouchableOpacity>
-					<TouchableOpacity
-						onPress={() => {
-							setvideo('BeMJoRppPDw');
-						}}
-						style={{ width: '15%', height: height / 30, backgroundColor: 'gray' }}
-					>
-						<Image style={{ width: '15%', height: height / 30, backgroundColor: 'gray' }} />
-					</TouchableOpacity>
-					<TouchableOpacity
-						onPress={() => {
-							setvideo('BeMJoRppPDw');
-						}}
-						style={{ width: '15%', height: height / 30, backgroundColor: 'gray' }}
-					>
-						<Image style={{ width: '15%', height: height / 30, backgroundColor: 'gray' }} />
-					</TouchableOpacity>
+				<View
+					style={{ width: isMobile ? '70%' : '40%', justifyContent: 'space-between', flexDirection: 'row' }}
+				>
+					<Miniatura isMobile={isMobile} setvideo={setvideo} />
+					<Miniatura isMobile={isMobile} setvideo={setvideo} />
+					<Miniatura isMobile={isMobile} setvideo={setvideo} />
+					<Miniatura isMobile={isMobile} setvideo={setvideo} />
+					<Miniatura isMobile={isMobile} setvideo={setvideo} />
 				</View>
 			</View>
 		</View>
 	);
 }
+
+const Miniatura = ({ isMobile, setvideo }) => {
+	return (
+		<TouchableOpacity
+			onPress={() => {
+				setvideo('BeMJoRppPDw');
+			}}
+			style={{ width: isMobile ? 50 : 65, height: isMobile ? 10 : 40 }}
+		>
+			<Image style={{ width: '100%', height: isMobile ? 30 : 40, backgroundColor: 'gray' }} />
+		</TouchableOpacity>
+	);
+};
+
 const _onReady = (event) => {
 	// access to player in all event handlers via event.target
 	//event.target.pauseVideo();
