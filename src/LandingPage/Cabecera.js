@@ -5,9 +5,8 @@ import { View, Text, StyleSheet, TouchableOpacity, Image, TextInput } from 'reac
 import { useWindowSize } from '../hooks/useWindowSize';
 import { fonts } from '../constantes/Temas';
 
-function Cabecera({ inicio, plataforma, cobertura, videos, contacto, scroll }) {
+function Cabecera({ inicio, plataforma, cobertura, videos, contacto, scroll, menu, setmenu, setshowMenu }) {
 	let { height, width, isMobile } = useWindowSize(1);
-	const [menu, setmenu] = useState('Inicio');
 
 	return (
 		<>
@@ -20,6 +19,7 @@ function Cabecera({ inicio, plataforma, cobertura, videos, contacto, scroll }) {
 						}}
 						style={{ width: '25%', height: '70%', resizeMode: 'contain' }}
 					/>
+
 					<View style={styles.menu}>
 						<MenuElement menu={menu} setmenu={setmenu} titulo={'Inicio'} href={inicio} scroll={scroll} />
 						<MenuElement
@@ -49,14 +49,33 @@ function Cabecera({ inicio, plataforma, cobertura, videos, contacto, scroll }) {
 			)}
 			{isMobile && (
 				<View style={[styles.cabecera, { width: width }]}>
-					<Image
-						source={{
-							uri:
-								'https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/logo.png?alt=media&token=e4e4b903-bd6e-4fdc-8a5f-4f3da51eaf91',
+					<TouchableOpacity
+						onPress={() => {
+							if (plataforma.current) {
+								window.scrollTo({
+									behavior: 'smooth',
+									top: plataforma.current.offsetTop - 50,
+								});
+								setmenu('Plataforma');
+							}
 						}}
 						style={{ width: '30%', height: '70%', resizeMode: 'contain', marginLeft: 20 }}
-					/>
-					<TouchableOpacity style={{ width: '8%', height: '35%', marginLeft: 20 }}>
+					>
+						<Image
+							source={{
+								uri:
+									'https://firebasestorage.googleapis.com/v0/b/hawk-peru.appspot.com/o/logo.png?alt=media&token=e4e4b903-bd6e-4fdc-8a5f-4f3da51eaf91',
+							}}
+							style={{ width: '100%', height: '100%', resizeMode: 'contain' }}
+						/>
+					</TouchableOpacity>
+
+					<TouchableOpacity
+						onPress={() => {
+							setshowMenu(true);
+						}}
+						style={{ width: '8%', height: '35%', marginLeft: 20, marginRight: 15 }}
+					>
 						<Image
 							source={{
 								uri:

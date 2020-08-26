@@ -20,6 +20,10 @@ export default function Home() {
 			<Head>
 				<title>Hawk Peru</title>
 
+				<link
+					rel="stylesheet"
+					href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+				/>
 				<link rel="shortcut icon" type="image/x-icon" href="http://hawkperu.com/favicon.png" />
 				<link rel="stylesheet" href="https://use.typekit.net/kxd1ure.css"></link>
 			</Head>
