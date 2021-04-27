@@ -70,7 +70,7 @@ function Footer() {
 					}}
 					style={{ width: 25, height: 25, marginRight: 5 }}
 				/>
-				<Text style={{ color: 'white' }}>hawkperu1@gmail.com</Text>
+				<Text style={{ color: 'white' }}>admin@hawkperu.com</Text>
 			</View>
 			{!isMobile && (
 				<View style={{ flexDirection: 'row' }}>

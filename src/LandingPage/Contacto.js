@@ -123,7 +123,7 @@ function Contacto({ contacto, setshowForm }) {
               Correo electrónico:
             </Text>
             <Text style={{ fonFamily: fonts.acuminv, fontSize: 18 }}>
-              hawkseguridad1@gmail.com
+            admin@hawkperu.com
             </Text>
           </View>
           <Text style={{ fonFamily: fonts.acumin, fontSize: 18 }}>
@@ -164,7 +164,7 @@ function Contacto({ contacto, setshowForm }) {
               Escríbenos al Whatsapp
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity
+          {/* <TouchableOpacity
             style={{
               padding: 5,
               flexDirection: "row",
@@ -201,7 +201,7 @@ function Contacto({ contacto, setshowForm }) {
             >
               Enviar un correo electrónico
             </Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
       </View>
     </View>

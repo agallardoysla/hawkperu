@@ -6,11 +6,11 @@ import YouTube from 'react-youtube';
 function Videos({ videos }) {
 	let { height, width, isMobile } = useWindowSize(1);
 
-	const [video, setvideo] = useState('2g811Eo7K8U');
+	const [video, setvideo] = useState('z4SmLGYC4lU');
 
 	const opts = {
-		height: '390',
-		width: isMobile ? width * 0.95 : width * 0.8,
+		height:isMobile ? '390':"600",
+		width: isMobile ? width * 0.95 : width * 0.7,
 		playerVars: {
 			autoplay: 0,
 		},
@@ -20,9 +20,9 @@ function Videos({ videos }) {
 		<View
 			ref={videos}
 			style={{
-				height: isMobile ? 500 : height * 0.7,
+				height: isMobile ? 500 : height * 0.8,
 				width: width,
-				justifyContent: 'center',
+				// justifyContent: 'center',
 				marginVertical: isMobile ? 10 : 0,
 				//backgroundColor: 'red',
 			}}
@@ -35,9 +35,9 @@ function Videos({ videos }) {
 					height: '90%',
 				}}
 			>
-				<YouTube videoId={video} opts={opts} onReady={_onReady} />
+				<YouTube style={{height:600}} videoId={video} opts={opts} onReady={_onReady} />
 				{/* <Image style={{ height: '75%', width: width * 0.8, backgroundColor: 'gray' }} /> */}
-				<Text style={{ marginVertical: 5 }}>Cómo funciona nuestro sistema remoto</Text>
+				{/* <Text style={{ marginVertical: 5 }}>Cómo funciona nuestro sistema remoto</Text>
 				<View
 					style={{ width: isMobile ? '70%' : '40%', justifyContent: 'space-between', flexDirection: 'row' }}
 				>
@@ -46,7 +46,7 @@ function Videos({ videos }) {
 					<Miniatura isMobile={isMobile} setvideo={setvideo} />
 					<Miniatura isMobile={isMobile} setvideo={setvideo} />
 					<Miniatura isMobile={isMobile} setvideo={setvideo} />
-				</View>
+				</View> */}
 			</View>
 		</View>
 	);
