@@ -130,6 +130,7 @@ function Contacto({ contacto, setshowForm }) {
             Si tiene dudas o sugerencias.
           </Text>
           <TouchableOpacity
+            onPress={()=>window.open("https://bit.ly/gpshawk")}
             style={{
               padding: 5,
               flexDirection: "row",
